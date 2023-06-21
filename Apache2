@@ -1,0 +1,33 @@
+systemctl stop httpd
+
+yum info httpd
+
+sudo yum install yum-changelog
+
+yum changelog httpd
+
+sudo yum install -y epel-release
+
+cd /etc/yum.repos.d && wget https://repo.codeit.guru/codeit.el7.repo
+
+VERSION=7
+
+rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-7-0).repo
+
+rpm -i codeit.el7.repo
+
+yum install httpd
+
+yum info httpd
+
+systemctl restart httpd
+
+OPENSSL
+
+openssl version
+
+yum install openssl
+
+openssl version
+
+openssl ciphers -v | awk '{print $2}' | sort | uniq
